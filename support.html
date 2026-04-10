@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frosty Floes Support</title>
+  <link rel="icon" href="./assets/frosty-floes-mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./assets/frosty-floes-brand.css">
+  <meta
+    name="description"
+    content="Support contact and help links for Frosty Floes and Frosty Floes: Sudoku."
+  >
+  <style>
+    :root {
+      --bg: #081420;
+      --panel: rgba(10, 25, 40, 0.84);
+      --line: rgba(179, 233, 255, 0.18);
+      --ink: #f5fbff;
+      --muted: rgba(245, 251, 255, 0.74);
+      --aqua: #9cecff;
+      --mint: #8ff4cd;
+      --title-font: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+      --body-font: "Avenir Next", "Trebuchet MS", "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: var(--body-font);
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 12% 0%, rgba(121, 230, 255, 0.14), transparent 26%),
+        radial-gradient(circle at 82% 10%, rgba(143, 244, 205, 0.16), transparent 28%),
+        linear-gradient(180deg, #0d2236 0%, var(--bg) 100%);
+      line-height: 1.6;
+    }
+
+    main {
+      width: min(920px, calc(100vw - 32px));
+      margin: 0 auto;
+      padding: 32px 0 56px;
+    }
+
+    a { color: inherit; }
+
+    .topline {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .topline a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .topline a:hover,
+    .topline a:focus-visible {
+      color: var(--mint);
+    }
+
+    .hero,
+    .panel {
+      border-radius: 28px;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02)),
+        var(--panel);
+      box-shadow: 0 24px 56px rgba(2, 10, 20, 0.34);
+    }
+
+    .hero {
+      padding: 34px 32px;
+      margin-bottom: 20px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(6, 19, 31, 0.4);
+      border: 1px solid rgba(179, 233, 255, 0.16);
+      color: var(--muted);
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--aqua), var(--mint));
+    }
+
+    h1, h2 {
+      font-family: var(--title-font);
+      letter-spacing: -0.03em;
+    }
+
+    h1 {
+      margin: 18px 0 12px;
+      font-size: clamp(2.6rem, 6vw, 4.2rem);
+      line-height: 0.94;
+    }
+
+    h2 {
+      margin: 0 0 10px;
+      font-size: 1.7rem;
+    }
+
+    p { color: var(--muted); }
+
+    .hero p {
+      max-width: 42rem;
+      margin: 0;
+    }
+
+    .actions,
+    .grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .actions {
+      margin-top: 24px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .action,
+    .panel {
+      padding: 22px;
+    }
+
+    .action {
+      border-radius: 22px;
+      border: 1px solid var(--line);
+      background: rgba(6, 19, 31, 0.34);
+      text-decoration: none;
+      transition: transform 160ms ease, border-color 160ms ease;
+    }
+
+    .action:hover,
+    .action:focus-visible {
+      transform: translateY(-3px);
+      border-color: rgba(179, 233, 255, 0.4);
+    }
+
+    .action strong,
+    .panel strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--aqua);
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .action span {
+      display: block;
+      font-size: 1.1rem;
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    .grid {
+      grid-template-columns: minmax(0, 1.12fr) minmax(280px, 0.88fr);
+      margin-top: 20px;
+    }
+
+    .support-email {
+      display: inline-flex;
+      align-items: center;
+      padding: 12px 16px;
+      margin: 8px 0 16px;
+      border-radius: 999px;
+      background: rgba(6, 19, 31, 0.44);
+      border: 1px solid var(--line);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    ul {
+      margin: 12px 0 0 20px;
+      color: var(--muted);
+    }
+
+    li + li {
+      margin-top: 8px;
+    }
+
+    @media (max-width: 760px) {
+      .actions,
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero,
+      .action,
+      .panel {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body class="ff-page">
+  <main>
+    <div class="topline">
+      <a href="./index.html">Frosty Floes Home</a>
+      <a href="./privacy-policy.html">Privacy Policy</a>
+    </div>
+
+    <section class="hero">
+      <div class="eyebrow">Support</div>
+      <h1>Help for Frosty Floes and Frosty Floes: Sudoku</h1>
+      <p>
+        If something feels off, send a short report and we can trace it faster.
+        This page is safe to use as a public support URL for the live app.
+      </p>
+
+      <div class="actions">
+        <a class="action" href="mailto:support@sudokumaster.app">
+          <strong>Email</strong>
+          <span>support@sudokumaster.app</span>
+        </a>
+        <a class="action" href="./privacy-policy.html">
+          <strong>Legal</strong>
+          <span>Sudoku privacy policy</span>
+        </a>
+        <a class="action" href="./index.html">
+          <strong>Brand</strong>
+          <span>Visit Frosty Floes home</span>
+        </a>
+      </div>
+    </section>
+
+    <div class="grid">
+      <section class="panel">
+        <h2>What to include in a support email</h2>
+        <a class="support-email" href="mailto:support@sudokumaster.app">support@sudokumaster.app</a>
+        <ul>
+          <li>App name and version</li>
+          <li>Device model and iOS version</li>
+          <li>What you expected to happen</li>
+          <li>What happened instead</li>
+          <li>A screenshot if the issue is visual</li>
+        </ul>
+      </section>
+
+      <aside class="panel">
+        <h2>Current scope</h2>
+        <p><strong>Live app:</strong> Frosty Floes: Sudoku</p>
+        <p><strong>Brand direction:</strong> Frosty Floes is expanding into a larger calm-play and light-daily-tools world over time.</p>
+      </aside>
+    </div>
+  </main>
+</body>
+</html>

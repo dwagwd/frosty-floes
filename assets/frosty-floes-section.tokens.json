@@ -1,0 +1,19 @@
+{
+  "sections": {
+    "hero": {
+      "eyebrow": "One quiet world. Many clever little rituals."
+    },
+    "support": {
+      "eyebrow": "Support",
+      "title": "Help for Frosty Floes products"
+    },
+    "legal": {
+      "title": "Privacy and public links"
+    },
+    "status": {
+      "live": "Live now",
+      "next": "Next wave",
+      "vision": "World vision"
+    }
+  }
+}
