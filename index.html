@@ -311,7 +311,7 @@
 
     .map-title p {
       margin: 8px 0 0;
-      max-width: 19rem;
+      max-width: 20rem;
       color: var(--mist);
       font-size: 0.95rem;
     }
@@ -412,25 +412,40 @@
     }
 
     .island-focus {
-      right: 54px;
-      bottom: 98px;
-      width: 206px;
-      height: 206px;
+      right: 42px;
+      bottom: 126px;
+      width: 254px;
+      height: 154px;
+      padding: 20px 24px;
+      border-radius: 44px;
+      color: var(--ink);
       background:
-        radial-gradient(circle at 34% 26%, rgba(255, 255, 255, 0.86), transparent 20%),
-        linear-gradient(135deg, #dff4ff 0%, #9cf3d2 52%, #6ad8ef 100%);
-      animation: floe-bob 8.8s ease-in-out infinite 1.2s;
+        radial-gradient(circle at 30% 40%, rgba(173, 255, 218, 0.28), transparent 34%),
+        radial-gradient(circle at 68% 46%, rgba(165, 231, 255, 0.22), transparent 38%),
+        linear-gradient(135deg, rgba(189, 252, 230, 0.16), rgba(118, 208, 255, 0.12));
+      border: 1px solid rgba(198, 242, 255, 0.16);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.1),
+        0 22px 46px rgba(4, 18, 31, 0.22);
+      animation: aurora-drift 10s ease-in-out infinite alternate;
     }
 
     .island-habit {
-      left: 84px;
-      bottom: 110px;
-      width: 162px;
-      height: 162px;
+      left: 92px;
+      bottom: 92px;
+      width: 184px;
+      height: 116px;
+      padding: 18px 20px;
+      border-radius: 36px;
+      color: var(--ink);
       background:
-        radial-gradient(circle at 34% 26%, rgba(255, 255, 255, 0.82), transparent 20%),
-        linear-gradient(135deg, #f7f2d8 0%, #aef2dc 58%, #89d6ff 100%);
-      animation: floe-bob 9.4s ease-in-out infinite 0.4s;
+        radial-gradient(circle at 26% 36%, rgba(255, 247, 205, 0.18), transparent 28%),
+        linear-gradient(135deg, rgba(255, 243, 200, 0.12), rgba(120, 207, 255, 0.1));
+      border: 1px solid rgba(198, 242, 255, 0.14);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+        0 20px 40px rgba(4, 18, 31, 0.18);
+      animation: aurora-drift 12s ease-in-out infinite alternate-reverse;
     }
 
     .route {
@@ -447,17 +462,17 @@
     }
 
     .route-b {
-      left: 220px;
-      top: 348px;
-      width: 208px;
-      transform: rotate(24deg);
+      left: 234px;
+      top: 382px;
+      width: 164px;
+      transform: rotate(16deg);
     }
 
     .route-c {
-      right: 164px;
-      bottom: 178px;
-      width: 136px;
-      transform: rotate(-46deg);
+      right: 184px;
+      bottom: 214px;
+      width: 112px;
+      transform: rotate(-34deg);
     }
 
     .penguin-crest {
@@ -656,19 +671,20 @@
 
     .world-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
+      grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+      gap: 22px;
+      align-items: stretch;
     }
 
     .world-card {
       position: relative;
-      padding: 22px 22px 20px;
-      border-radius: 24px;
+      padding: 26px 26px 24px;
+      border-radius: 28px;
       background:
         linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)),
         var(--panel);
       border: 1px solid rgba(198, 242, 255, 0.12);
-      min-height: 200px;
+      min-height: 220px;
       overflow: hidden;
     }
 
@@ -686,7 +702,7 @@
       display: block;
       margin: 0 0 8px;
       font-family: var(--title-font);
-      font-size: 1.42rem;
+      font-size: clamp(1.52rem, 2.6vw, 2.2rem);
       line-height: 1.04;
     }
 
@@ -704,26 +720,63 @@
       color: var(--ink-soft);
     }
 
-    .timeline {
+    .world-card--primary {
+      min-height: 100%;
+      background:
+        radial-gradient(circle at 78% 16%, rgba(170, 240, 255, 0.14), transparent 24%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)),
+        var(--panel);
+    }
+
+    .world-side {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-      margin-top: 22px;
+      gap: 22px;
     }
 
-    .timeline-step {
-      padding: 18px 18px 20px;
-      border-top: 2px solid rgba(143, 244, 205, 0.42);
-      background: rgba(7, 21, 34, 0.3);
+    .world-card--future {
+      background:
+        radial-gradient(circle at 26% 24%, rgba(159, 245, 210, 0.12), transparent 24%),
+        radial-gradient(circle at 78% 70%, rgba(159, 231, 255, 0.14), transparent 28%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)),
+        var(--panel);
     }
 
-    .timeline-step strong {
-      display: block;
-      margin-bottom: 8px;
-      color: var(--sun);
+    .future-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .future-chip {
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(198, 242, 255, 0.16);
+      color: var(--mist);
+      font-size: 0.82rem;
       letter-spacing: 0.06em;
       text-transform: uppercase;
-      font-size: 0.86rem;
+      background: rgba(7, 24, 37, 0.28);
+    }
+
+    .future-note {
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: rgba(245, 251, 255, 0.66);
+      font-size: 0.95rem;
+    }
+
+    .roadmap-rule {
+      margin-top: 26px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: var(--mist);
+      font-size: 0.98rem;
+    }
+
+    .roadmap-rule strong {
+      color: var(--sun);
     }
 
     .philosophy {
@@ -890,8 +943,7 @@
       }
 
       .principles,
-      .world-grid,
-      .timeline {
+      .world-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
@@ -944,17 +996,17 @@
       }
 
       .island-focus {
-        right: 22px;
-        bottom: 118px;
-        width: 166px;
-        height: 166px;
+        right: 18px;
+        bottom: 128px;
+        width: 180px;
+        height: 118px;
       }
 
       .island-habit {
         left: 24px;
-        bottom: 136px;
-        width: 136px;
-        height: 136px;
+        bottom: 96px;
+        width: 144px;
+        height: 88px;
       }
 
       .route-a {
@@ -964,15 +1016,15 @@
       }
 
       .route-b {
-        left: 164px;
-        top: 386px;
-        width: 164px;
+        left: 170px;
+        top: 392px;
+        width: 140px;
       }
 
       .route-c {
-        right: 140px;
-        bottom: 204px;
-        width: 100px;
+        right: 124px;
+        bottom: 206px;
+        width: 90px;
       }
 
       .penguin-crest {
@@ -981,7 +1033,6 @@
 
       .principles,
       .world-grid,
-      .timeline,
       .sudoku-board {
         grid-template-columns: 1fr;
       }
@@ -1043,7 +1094,8 @@
             </h1>
             <p>
               Frosty Floes is a calm polar universe for brain games and light daily tools.
-              <strong>Frosty Floes: Sudoku</strong> is the first island in the water. Blocks and Focus are charted next.
+              <strong>Frosty Floes: Sudoku</strong> is already live.
+              <strong>Frosty Floes: Blocks</strong> is the next clear step. The rest of the map is still forming.
             </p>
 
             <div class="hero-actions">
@@ -1053,16 +1105,16 @@
             </div>
 
             <p class="launch-note">
-              Designed for the space between pure productivity and pure kids apps:
-              playful, clear, soothing, and easy to return to every day.
+              Designed for quiet repeat visits:
+              playful, clear, soothing, and honest about what is real now versus what is still just direction.
             </p>
           </div>
 
           <div class="hero-map" aria-label="Frosty Floes world map">
             <div class="map-title">
               <div>
-                <h2>The polar archipelago is the product system.</h2>
-                <p>Each app is a floe. The mascot, tone, pacing, and reward loop stay shared across the whole world.</p>
+                <h2>Only two islands are named right now.</h2>
+                <p>Sudoku proves the tone. Blocks is next. Everything beyond that stays intentionally open until the shape is earned.</p>
               </div>
               <div class="status-tag">Sudoku live now</div>
             </div>
@@ -1076,20 +1128,20 @@
             <a class="island island-blocks" href="#world" aria-label="Frosty Floes Blocks roadmap">
               <strong>Blocks</strong>
               <span>Blast Floe</span>
-              <small>Next wave</small>
+              <small>Next up</small>
             </a>
 
-            <a class="island island-focus" href="#world" aria-label="Frosty Floes Focus roadmap">
-              <strong>Focus</strong>
-              <span>Lighthouse</span>
-              <small>Next wave</small>
-            </a>
+            <div class="island island-focus" aria-label="Open future direction">
+              <strong>Open horizon</strong>
+              <span>More calm play and light daily rituals may arrive later.</span>
+              <small>Not decided yet</small>
+            </div>
 
-            <a class="island island-habit" href="#world" aria-label="Frosty Floes Habit roadmap">
-              <strong>Habit</strong>
-              <span>Harbor</span>
-              <small>World vision</small>
-            </a>
+            <div class="island island-habit" aria-hidden="true">
+              <strong>Still forming</strong>
+              <span>Aurora zone</span>
+              <small>Future</small>
+            </div>
 
             <span class="route route-a" aria-hidden="true"></span>
             <span class="route route-b" aria-hidden="true"></span>
@@ -1197,57 +1249,38 @@
 
       <section id="world" aria-labelledby="world-title">
         <div class="section-header">
-          <h2 id="world-title">The Frosty Floes roadmap should read like one map.</h2>
+          <h2 id="world-title">The roadmap should stay honest while the brand gets stronger.</h2>
           <p>
-            These names are framed as brand direction, not already shipped products. The goal is clarity on the storefront and room for cross-sell later.
+            The current commitment is simple: one live flagship, one clear next product, and a wider world that is still intentionally undecided.
           </p>
         </div>
 
         <div class="world-grid">
-          <article class="world-card">
+          <article class="world-card world-card--primary">
             <span class="status">Live now</span>
             <strong>Frosty Floes: Sudoku</strong>
-            <p>Logic, daily challenges, and the first proof that the Frosty Floes tone can sustain repeat play.</p>
+            <p>Logic, daily challenges, hints, notes, revive, and the first proof that the Frosty Floes tone can sustain repeat play.</p>
+            <p class="future-note">This is the anchor product. It tells users what the world feels like before anything else exists.</p>
           </article>
-          <article class="world-card">
-            <span class="status">Next up</span>
-            <strong>Frosty Floes: Blocks</strong>
-            <p>Short-burst combo energy. This is the traffic magnet that can widen the audience without breaking the world.</p>
-          </article>
-          <article class="world-card">
-            <span class="status">Next up</span>
-            <strong>Frosty Floes: Focus</strong>
-            <p>Pomodoro, quiet soundscapes, and a calm timer surface that naturally extends the same emotional territory.</p>
-          </article>
-          <article class="world-card">
-            <span class="status">Second wave</span>
-            <strong>Notes / Habit / Planner</strong>
-            <p>Light daily tools should feel like adjacent islands, not a pivot away from the core brand promise.</p>
-          </article>
-          <article class="world-card">
-            <span class="status">Third wave</span>
-            <strong>Journal / Learn / Kids</strong>
-            <p>Education and reflection become stronger once the mascot, cadence, and cross-app rituals are already legible.</p>
-          </article>
-          <article class="world-card">
-            <span class="status">System idea</span>
-            <strong>Frosty Pass</strong>
-            <p>One membership, one world: ad removal, cloud sync, seasonal rewards, and mascot cosmetics shared across apps.</p>
-          </article>
-        </div>
+          <div class="world-side">
+            <article class="world-card">
+              <span class="status">Next up</span>
+              <strong>Frosty Floes: Blocks</strong>
+              <p>Short-burst combo energy is the next most natural expansion: a faster loop, a broader audience, and the same cold-air clarity.</p>
+              <p class="future-note">This is the only named follow-up that feels committed enough to say out loud.</p>
+            </article>
 
-        <div class="timeline" aria-label="Suggested release order">
-          <div class="timeline-step">
-            <strong>Wave 1</strong>
-            <p class="body-copy">Sudoku, Blocks, and Focus establish the cleanest emotional triangle: logic, burst play, and calm concentration.</p>
-          </div>
-          <div class="timeline-step">
-            <strong>Wave 2</strong>
-            <p class="body-copy">Notes, Habit, and Planner translate the same gentle feedback loop into practical daily utility.</p>
-          </div>
-          <div class="timeline-step">
-            <strong>Wave 3</strong>
-            <p class="body-copy">Learn, Journal, and Kids deepen the IP into family-friendly and educational territory once the world is already trusted.</p>
+            <article class="world-card world-card--future">
+              <span class="status">Open horizon</span>
+              <strong>The rest is still intentionally undecided.</strong>
+              <p>There may be more islands later, but not because the brand needs nine boxes on a roadmap. The next product after Blocks should earn its place.</p>
+              <div class="future-chips" aria-label="Possible directions">
+                <span class="future-chip">brain games</span>
+                <span class="future-chip">focus tools</span>
+                <span class="future-chip">daily rituals</span>
+              </div>
+              <p class="roadmap-rule"><strong>Rule:</strong> if a future product does not feel calm, clever, and easy to revisit in under ten minutes, it should not wear the Frosty Floes name.</p>
+            </article>
           </div>
         </div>
       </section>
@@ -1313,9 +1346,9 @@
       <section class="closing" aria-labelledby="closing-title">
         <div class="closing-copy">
           <div>
-            <h2 id="closing-title">Frosty Floes should look like one world before it ships nine products.</h2>
+            <h2 id="closing-title">Frosty Floes should feel like one world before the roadmap gets crowded.</h2>
             <p>
-              This page is the first step: brand-first hierarchy, one mascot system, one naming pattern, and a roadmap that already reads like an archipelago instead of disconnected app ideas.
+              This page now does the right thing: it makes the brand legible, names only what is real, and leaves enough open water for the rest of the project to emerge without pretending it is already settled.
             </p>
           </div>
           <div class="badge-row" aria-label="Brand pillars">
